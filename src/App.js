@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { Header, Card } from "./components/index.js";
+const App = () => {
+  const [deals, setDeals] = useState(null);
 
-function App() {
+  const getDeals = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/deals", {
+        method: "GET",
+      });
+      const data = await response.json();
+      setDeals(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getDeals();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Header />
+      <nav>
+        <button className="primary">Amazon</button>
+        <button className="" disabled>
+          AliExpress
+        </button>
+        <button className="" disabled>
+          Ebay
+        </button>
+        <button className="" disabled>
+          Etsy
+        </button>
+      </nav>
+      <div className="">
+        <h2>Best Deals!</h2>
+      </div>
+      <div className="feed">
+        {deals?.map((deal) => (
+          <Card item={deal} key={deal.pos} />
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
