@@ -5,12 +5,9 @@ const Header = () => {
   return (
     <header className='header'>
       <div className="app-header">
-        <h1>DealFinder</h1>
+        <h2>DealFinder</h2>
         <p>{today}</p>
       </div>
-      {/* <div className="header-log">
-        <img src="" alt="" />
-      </div> */}
     </header>
   )
 }

@@ -23,14 +23,17 @@ const App = () => {
       <Header />
       <nav>
         <button className="primary">Amazon</button>
-        <button className="" disabled>
+        <button className="primary" disabled>
           AliExpress
         </button>
-        <button className="" disabled>
+        <button className="primary" disabled>
           Ebay
         </button>
-        <button className="" disabled>
+        <button className="primary" disabled>
           Etsy
+        </button>
+        <button className="primary" disabled>
+          AliBaba
         </button>
       </nav>
       <div className="">

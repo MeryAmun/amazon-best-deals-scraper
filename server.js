@@ -1,17 +1,18 @@
 import express from "express";
 import cors from "cors";
+import dotenv from 'dotenv'
 const app = express();
 const PORT = 8000;
 import fetch from "node-fetch";
 app.use(cors());
 
 app.listen(PORT, () => {
+  dotenv.config()
   console.log(`Listening to Port ${PORT}`);
 });
-const username = "chebs";
-const password = "Revolt2022";
-// const username = process.env.REACT_APP_OXYLABS_USERNAME;
-// const password = process.env.REACT_APP_OXYLABS_PASSWORD
+
+// const username = process.env.USERNAME;
+// const password = process.env.PASSWORD
 
 app.get("/deals", async (req, res) => {
   try {
